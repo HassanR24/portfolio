@@ -11,8 +11,8 @@ export const heroHighlights = [
 ];
 
 export const heroStats = [
-  { value: "3+", label: "years in software" },
   { value: "9", label: "ACCA exams cleared" },
+  { value: "3+", label: "years in software" },
   { value: "10+", label: "automation tools shipped" },
   { value: "Live", label: "products shipped end to end" },
 ];
@@ -21,7 +21,7 @@ export const terminalTranscript = [
   {
     command: "whoami",
     output:
-      "Hassan Raza - Full Stack Developer blending Django, React, scraping, automation, and delivery mindset.",
+      "Hassan Raza - Full Stack Developer blending Django, React, scraping and automation mindset.",
   },
   {
     command: "story --origin",
@@ -58,13 +58,14 @@ export const storyTimeline = [
   },
   {
     year: "Enlatics",
-    title: "Moved into backend delivery",
+    title: "Moved into backend development",
     text: "Shipped a Django task management app, built KYC scraping workflows, and grew into a Python backend role.",
   },
   {
     year: "Programmers Force",
     title: "Product work across teams",
-    text: "Worked on ETL, chatbot, AI, identity verification, React apps, scraping systems, and full product delivery, often across multiple moving parts at once.",
+    text: "Worked on ETL, AI chatbot, AI API Integrations, Shufti (Identity Verification App), and client-requested product features while keeping delivery stable across moving pieces.",
+    award: "Excellent Performance Award, December 2024",
   },
   {
     year: "ThunderMind Tech",
@@ -82,8 +83,8 @@ export const projectCards = [
       "A live travel platform with package management, customer flows, a polished client-facing interface, and deployment work from end to end.",
     stack: ["Django", "React", "Tailwind CSS", "PostgreSQL", "HeroUI"],
     tools: [
-      "GitHub Actions",
-      "Deployment",
+      "CI/CD Pipelines",
+      "Server Deployement",
       "Responsive UI",
       "Client workflows",
     ],
@@ -128,9 +129,10 @@ export const techSections = {
     "Django REST Framework",
     "FastAPI",
     "Celery",
+    "Celery Beat",
     "Redis",
     "PostgreSQL",
-    "PHP / Laravel",
+    "Supabase",
   ],
   Automation: [
     "Scrapy",
@@ -141,7 +143,7 @@ export const techSections = {
     "Linux",
     "Browser automation",
   ],
-  Delivery: [
+  Deployment: [
     "GitHub Actions",
     "Docker",
     "Testing",
@@ -162,7 +164,7 @@ export const techSections = {
 };
 
 export const currentFocus = [
-  "Shipping React + Django products end to end",
+  "From Design to Deployment: Turning ideas into live products with React + Django",
   "Building scraping systems that survive real-world defenses",
   "Creating interfaces that feel modern, fast, and memorable",
 ];

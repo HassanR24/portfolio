@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 
 const pageVariants = {
   initial: { opacity: 0, y: 18, filter: "blur(8px)" },
@@ -26,10 +27,10 @@ export function Page({ children }: { children: ReactNode }) {
 
 export function SectionLabel({ label }: { label: string }) {
   return (
-    <div className="mb-4 flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-      <span className="h-px w-10 bg-gradient-to-r from-cyan-300/70 to-transparent" />
+    <div className="mb-4 flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-emerald-200/80">
+      <span className="h-px w-10 bg-gradient-to-r from-emerald-300/70 to-transparent" />
       <span>{label}</span>
-      <span className="font-mono text-cyan-100/70">&lt;/&gt;</span>
+      <span className="font-mono text-emerald-100/70">&lt;/&gt;</span>
     </div>
   );
 }
@@ -65,10 +66,25 @@ export function Shell({
 }) {
   return (
     <div
-      className={`rounded-[34px] border border-cyan-300/10 bg-slate-950/20 backdrop-blur-2xl ${className}`}
+      className={`rounded-[34px] border border-emerald-300/10 bg-[#1e293b]/80 backdrop-blur-2xl ${className}`}
     >
       {children}
     </div>
+  );
+}
+
+export function ScrollToTopButton() {
+  return (
+    <motion.button
+      type="button"
+      aria-label="Scroll to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.96 }}
+      className="fixed bottom-4 right-4 z-50 grid h-12 w-12 place-items-center rounded-full border border-emerald-300/15 bg-[#1e293b]/90 text-emerald-200 shadow-[0_18px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl transition hover:border-emerald-300/25 hover:bg-[#334155] sm:bottom-6 sm:right-6"
+    >
+      <ArrowUp size={18} />
+    </motion.button>
   );
 }
 
@@ -111,7 +127,7 @@ export function AlternatingTimeline<T>({
 }: AlternatingTimelineProps<T>) {
   return (
     <div className="relative mt-10">
-      <div className="absolute left-4 top-0 h-full w-px bg-cyan-300/15 md:left-1/2 md:-translate-x-px" />
+      <div className="absolute left-4 top-0 h-full w-px bg-emerald-300/15 md:left-1/2 md:-translate-x-px" />
       <div className="grid gap-8">
         {items.map((item, index) => {
           const isLeft = index % 2 === 0;
@@ -133,8 +149,8 @@ export function AlternatingTimeline<T>({
                 }
               />
               <div className="relative z-10 flex justify-start md:col-start-2 md:justify-center">
-                <div className="grid h-5 w-5 place-items-center rounded-full border border-cyan-300/25 bg-slate-950/90 shadow-[0_0_0_8px_rgba(56,189,248,0.08)]">
-                  <span className="h-2 w-2 rounded-full bg-cyan-200" />
+                <div className="grid h-5 w-5 place-items-center rounded-full border border-emerald-300/25 bg-slate-950/90 shadow-[0_0_0_8px_rgba(16,185,129,0.08)]">
+                  <span className="h-2 w-2 rounded-full bg-emerald-200" />
                 </div>
               </div>
               <div
