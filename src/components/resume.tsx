@@ -63,51 +63,6 @@ export function ResumePage() {
                 </span>
               ))}
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="/Hassan_Raza_Resume.pdf"
-                download
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_50px_rgba(16,185,129,0.2)] transition hover:-translate-y-0.5 hover:from-emerald-400 hover:to-emerald-200"
-              >
-                Download PDF
-              </a>
-              <button
-                type="button"
-                onClick={() =>
-                  (window.location.href = `mailto:${profileLinks.email}`)
-                }
-                className="inline-flex items-center justify-center rounded-full border border-emerald-300/12 bg-[#1e293b] px-5 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5"
-              >
-                Email
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  window.open(
-                    profileLinks.github,
-                    "_blank",
-                    "noopener,noreferrer",
-                  )
-                }
-                className="inline-flex items-center justify-center rounded-full border border-emerald-300/12 bg-[#1e293b] px-5 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5"
-              >
-                GitHub
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  window.open(
-                    profileLinks.linkedin,
-                    "_blank",
-                    "noopener,noreferrer",
-                  )
-                }
-                className="inline-flex items-center justify-center rounded-full border border-emerald-300/12 bg-[#1e293b] px-5 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5"
-              >
-                LinkedIn
-              </button>
-            </div>
           </div>
         </div>
 
@@ -118,37 +73,35 @@ export function ResumePage() {
               Contact details
             </div>
             <div className="mt-5 grid gap-3 text-sm text-slate-300">
-              <div className="flex items-center gap-3 border-b border-emerald-300/10 py-4">
+              <a
+                className="flex items-center gap-3 rounded-2xl border-b border-emerald-300/10 py-4 transition hover:border-emerald-300/25 hover:bg-[#0f172a]/60 hover:px-3"
+                href={`mailto:${profileLinks.email}`}
+              >
                 <Mail size={16} className="shrink-0 text-amber-300" />
-                <a
-                  className="break-all hover:text-white"
-                  href={`mailto:${profileLinks.email}`}
-                >
+                <span className="break-all hover:text-white">
                   {profileLinks.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-3 border-b border-emerald-300/10 py-4">
+                </span>
+              </a>
+              <a
+                className="flex items-center gap-3 rounded-2xl border-b border-emerald-300/10 py-4 transition hover:border-emerald-300/25 hover:bg-[#0f172a]/60 hover:px-3"
+                href={profileLinks.github}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaGithub size={16} className="shrink-0 text-slate-200" />
-                <a
-                  className="hover:text-white"
-                  href={profileLinks.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github.com/HassanR24
-                </a>
-              </div>
-              <div className="flex items-center gap-3 border-b border-emerald-300/10 py-4">
+                <span className="hover:text-white">github.com/HassanR24</span>
+              </a>
+              <a
+                className="flex items-center gap-3 rounded-2xl border-b border-emerald-300/10 py-4 transition hover:border-emerald-300/25 hover:bg-[#0f172a]/60 hover:px-3"
+                href={profileLinks.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaLinkedin size={16} className="shrink-0 text-emerald-300" />
-                <a
-                  className="hover:text-white"
-                  href={profileLinks.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <span className="hover:text-white">
                   linkedin.com/in/hassanr410/
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -178,9 +131,9 @@ export function ResumePage() {
 
       <section className="space-y-5">
         <SectionTitle
-          label="Professional history"
-          title="Timeline resume"
-          intro="The resume timeline alternates left and right, with generous spacing and larger cards so the content has room to breathe."
+          label="Experience"
+          title="Professional Journey"
+          intro="A timeline of the roles, projects, and milestones that have shaped my career—from transitioning into software development to building scalable full-stack applications."
         />
         <AlternatingTimeline
           items={resumeTimeline}
@@ -217,38 +170,6 @@ export function ResumePage() {
             </div>
           )}
         />
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-[30px] border border-emerald-300/10 bg-[#1e293b] p-6 sm:p-7">
-          <div className="flex items-center gap-2 text-sm font-semibold text-slate-100">
-            <Code2 size={16} className="text-emerald-300" />
-            Languages and systems
-          </div>
-          <div className="mt-4 grid gap-3 text-slate-300">
-            <div className="border-b border-emerald-300/10 py-4">
-              Python, JavaScript, TypeScript, PHP
-            </div>
-            <div className="border-b border-emerald-300/10 py-4">
-              Django, React, Next.js, Tailwind CSS
-            </div>
-            <div className="border-b border-emerald-300/10 py-4">
-              Scrapy, Playwright, Selenium, Celery
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-[30px] border border-emerald-300/10 bg-[#1e293b] p-6 sm:p-7">
-          <div className="flex items-center gap-2 text-sm font-semibold text-slate-100">
-            <Workflow size={16} className="text-amber-300" />
-            What this timeline shows
-          </div>
-          <p className="mt-4 leading-8 text-slate-300">
-            The layout is meant to feel like a living history strip: the center
-            line, alternating entries, and slower, roomier cards all help the
-            page read as narrative instead of a wall of boxes.
-          </p>
-        </div>
       </section>
     </Page>
   );

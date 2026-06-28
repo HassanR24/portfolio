@@ -164,12 +164,12 @@ function FooterSection() {
         {heroStats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-[28px] border border-emerald-300/10 bg-[#1e293b] p-5"
+            className="rounded-[28px] border border-emerald-300/10 bg-[#1e293b] p-5 text-center lg:text-left"
           >
             <p className="text-3xl font-semibold tracking-tight text-slate-50">
               {stat.value}
             </p>
-            <p className="mt-1 text-sm leading-6 text-slate-400">
+            <p className="mt-1 text-sm leading-6 text-slate-400 lg:max-w-none">
               {stat.label}
             </p>
           </div>

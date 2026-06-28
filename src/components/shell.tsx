@@ -56,8 +56,11 @@ function TypewriterTerminal() {
   const [ref, isInView] = useInViewOnce<HTMLDivElement>(0.35);
   const [liveEntries, setLiveEntries] = useState<LiveEntry[]>([]);
   const [draftCommand, setDraftCommand] = useState("");
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const outputRef = useRef<HTMLDivElement | null>(null);
+  const draftBeforeHistoryRef = useRef("");
 
   useEffect(() => {
     if (!isInView) {
@@ -85,10 +88,13 @@ function TypewriterTerminal() {
     if (command === "clear") {
       setLiveEntries([]);
       setDraftCommand("");
+      setHistoryIndex(null);
       return;
     }
 
     const output = buildLiveOutput(command);
+    setCommandHistory((value) => [...value, command]);
+    setHistoryIndex(null);
 
     setLiveEntries((value) => [
       ...value,
@@ -99,6 +105,43 @@ function TypewriterTerminal() {
       },
     ]);
     setDraftCommand("");
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== "ArrowUp" && event.key !== "ArrowDown") {
+      return;
+    }
+
+    if (!commandHistory.length) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (historyIndex === null) {
+      draftBeforeHistoryRef.current = draftCommand;
+      const nextIndex = commandHistory.length - 1;
+      setHistoryIndex(nextIndex);
+      setDraftCommand(commandHistory[nextIndex] ?? "");
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      const nextIndex = Math.max(historyIndex - 1, 0);
+      setHistoryIndex(nextIndex);
+      setDraftCommand(commandHistory[nextIndex] ?? "");
+      return;
+    }
+
+    if (historyIndex < commandHistory.length - 1) {
+      const nextIndex = historyIndex + 1;
+      setHistoryIndex(nextIndex);
+      setDraftCommand(commandHistory[nextIndex] ?? "");
+      return;
+    }
+
+    setHistoryIndex(null);
+    setDraftCommand(draftBeforeHistoryRef.current);
   }
 
   return (
@@ -151,6 +194,7 @@ function TypewriterTerminal() {
               ref={inputRef}
               value={draftCommand}
               onChange={(event) => setDraftCommand(event.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Type --help"
               className="w-full bg-transparent text-cyan-100 outline-none placeholder:text-slate-500"
               spellCheck={false}

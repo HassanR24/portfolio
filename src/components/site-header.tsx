@@ -9,8 +9,8 @@ export function SiteHeader() {
 
       <div className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-between gap-8 px-0">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10">
-          <div className="space-y-6">
-            <div className="flex flex-wrap gap-2">
+          <div className="space-y-6 text-center lg:text-left">
+            <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
               <span className="rounded-full border border-emerald-300/15 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-100">
                 $ warp
               </span>
@@ -27,30 +27,29 @@ export function SiteHeader() {
                 API Integration
               </span>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col items-center gap-4 lg:items-start">
               <h1 className="max-w-2xl text-6xl font-black tracking-tight text-slate-50 sm:text-7xl lg:text-[5.25rem] lg:leading-[0.88]">
                 Hassan
               </h1>
-              <h1 className="max-w-2xl text-[2.9rem] font-extrabold tracking-tight text-slate-100 sm:text-[3.8rem] lg:text-[4.75rem] lg:leading-[0.9]">
+              <h1 className="max-w-2xl text-[2.75rem] font-extrabold tracking-tight text-slate-100 sm:text-[3.8rem] lg:text-[4.75rem] lg:leading-[0.9]">
                 Raza
               </h1>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.34em] text-emerald-200 sm:text-base">
+              <p className="mt-2 text-center text-sm font-semibold uppercase tracking-[0.34em] text-emerald-200 sm:text-base lg:text-left">
                 Full Stack Developer (Django + React)
               </p>
             </div>
 
-            <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="mx-auto max-w-2xl text-base leading-8 text-slate-300 sm:text-lg lg:mx-0 lg:text-left">
               I build softwares that turn messy workflows into something calm
               and usable. I'm a Full Stack Developer with a strong foundation in
-              Python, Django, React, web scraping, and automation. I enjoy
-              building scalable web applications, REST APIs, and workflow
-              automation tools that solve real business problems. Whether it's
-              developing enterprise systems, integrating third-party services,
-              or creating intuitive user experiences, I focus on writing clean,
-              maintainable code that delivers reliable and efficient solutions.
+              frameworks like Django and React. I build scalable web
+              applications, REST APIs, and workflow automation tools that solve
+              real business problems. Whether it's developing enterprise
+              systems, integrating third-party services, or creating intuitive
+              user experiences.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 font-mono text-[0.72rem] uppercase tracking-[0.34em] text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-[0.72rem] uppercase tracking-[0.34em] text-slate-400 lg:justify-start">
               <span className="rounded-full border border-emerald-300/15 bg-[#1e293b] px-3 py-1">
                 $ npm run build
               </span>
@@ -62,7 +61,7 @@ export function SiteHeader() {
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
               <button
                 type="button"
                 onClick={() =>
@@ -100,7 +99,7 @@ export function SiteHeader() {
             <img
               src={heroImage}
               alt="Hassan Raza portrait"
-              className="relative h-[420px] w-full max-w-[420px] rounded-[32px] object-cover shadow-[0_30px_80px_rgba(0,0,0,0.38)] sm:h-[500px] lg:h-[540px]"
+              className="relative h-[360px] w-full max-w-[360px] rounded-[32px] object-cover shadow-[0_30px_80px_rgba(0,0,0,0.38)] sm:h-[500px] sm:max-w-[420px] lg:h-[540px]"
             />
           </div>
         </div>
